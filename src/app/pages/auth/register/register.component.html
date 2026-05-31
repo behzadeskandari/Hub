@@ -1,0 +1,105 @@
+<div class="min-h-screen flex items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+  <div class="w-full max-w-2xl space-y-8 bg-card p-8 rounded-xl border border-border shadow-sm">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-foreground">ایجاد حساب کاربری جدید</h2>
+      <p class="mt-2 text-sm text-muted-foreground">
+        قبلاً ثبت نام کرده‌اید؟
+        <a routerLink="/login" class="font-medium text-foreground underline underline-offset-4 hover:text-primary-hover">
+          وارد شوید
+        </a>
+      </p>
+    </div>
+
+    <div *ngIf="errorMessage" class="bg-destructive/10 text-destructive text-sm p-3 rounded-lg border border-destructive/20 text-center">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="successMessage" class="bg-green-50 text-green-700 text-sm p-3 rounded-lg border border-green-200 text-center">
+      {{ successMessage }}
+    </div>
+
+    <form class="mt-8 space-y-6" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <div>
+          <label for="firstName" class="block text-sm font-medium text-foreground mb-1">نام</label>
+          <input
+            id="firstName" type="text" formControlName="firstName"
+            class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+            [ngClass]="{'border-destructive focus:ring-destructive': registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid}">
+          <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid" class="text-destructive text-xs mt-1">
+            نام باید بین ۳ حداقل و حداکثر ۱۵ حرف باشد
+          </div>
+        </div>
+
+        <div>
+          <label for="lastName" class="block text-sm font-medium text-foreground mb-1">نام خانوادگی</label>
+          <input
+            id="lastName" type="text" formControlName="lastName"
+            class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+            [ngClass]="{'border-destructive focus:ring-destructive': registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid}">
+          <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid" class="text-destructive text-xs mt-1">
+            نام خانوادگی باید بین ۳ حداقل و حداکثر ۱۵ حرف باشد
+          </div>
+        </div>
+
+        <div>
+          <label for="userName" class="block text-sm font-medium text-foreground mb-1">نام کاربری</label>
+          <input
+            id="userName" type="text" formControlName="userName"
+            class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+            [ngClass]="{'border-destructive focus:ring-destructive': registerForm.get('userName')?.touched && registerForm.get('userName')?.invalid}">
+          <div *ngIf="registerForm.get('userName')?.touched && registerForm.get('userName')?.invalid" class="text-destructive text-xs mt-1">
+            وارد کردن نام کاربری الزامی است
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-foreground mb-1">ایمیل</label>
+          <input
+            id="email" type="email" formControlName="email" dir="ltr"
+            class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-right"
+            [ngClass]="{'border-destructive focus:ring-destructive': registerForm.get('email')?.touched && registerForm.get('email')?.invalid}">
+          <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid" class="text-destructive text-xs mt-1">
+            فرمت ایمیل وارد شده معتبر نیست
+          </div>
+        </div>
+
+        <div class="md:col-span-2">
+          <label for="password" class="block text-sm font-medium text-foreground mb-1">رمز عبور</label>
+          <input
+            id="password" type="password" formControlName="password" dir="ltr"
+            class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-right"
+            [ngClass]="{'border-destructive focus:ring-destructive': registerForm.get('password')?.touched && registerForm.get('password')?.invalid}">
+          <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="text-destructive text-xs mt-1">
+            رمز عبور باید بین ۳ حداقل و حداکثر ۱۵ حرف باشد
+          </div>
+        </div>
+
+        <div class="md:col-span-2">
+          <label for="address" class="block text-sm font-medium text-foreground mb-1">آدرس</label>
+          <textarea
+            id="address" formControlName="address" rows="3"
+            class="block w-full px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"></textarea>
+        </div>
+
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          [disabled]="isLoading"
+          class="relative flex w-full h-10 justify-center items-center rounded-md bg-primary text-sm font-medium text-primary-foreground shadow hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          <span *ngIf="!isLoading">ثبت نام</span>
+          <span *ngIf="isLoading" class="flex items-center gap-2">
+            <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            در حال ارسال اطلاعات...
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

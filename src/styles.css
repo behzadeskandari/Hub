@@ -1,0 +1,36 @@
+/* 1. INITIALIZE TAILWIND V4 */
+@import "tailwindcss";
+
+/* 2. USE WORKSPACE ROOT PATH PATTERNS (No leading dots) */
+@source "src/app/**/*.html";
+@source "src/app/**/*.ts";
+
+/* 3. THIRD-PARTY DEPENDENCIES AND FONTS */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/vazirmatn-font-face.css');
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
+/* 4. DESIGN TOKENS SYSTEM */
+@theme {
+  --color-border: rgba(226, 232, 240, 0.8);
+  --color-background: #fafafa;
+  --color-foreground: #09090b;
+  --color-card: #ffffff;
+  --color-primary: #0f172a;
+  --color-primary-hover: #1e293b;
+  --color-primary-foreground: #f8fafc;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #0f172a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f8fafc;
+
+  --font-sans: 'Vazirmatn', 'ui-sans-serif', 'system-ui';
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), sans-serif;
+}
