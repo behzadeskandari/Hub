@@ -1,16 +1,13 @@
-/* 1. INITIALIZE TAILWIND V4 */
 @import "tailwindcss";
 
-/* 2. USE WORKSPACE ROOT PATH PATTERNS (No leading dots) */
-@source "src/app/**/*.html";
-@source "src/app/**/*.ts";
+/* Point it cleanly to your source directory */
+@source "./src/app/**/*.html";
+@source "./src/app/**/*.ts";
 
-/* 3. THIRD-PARTY DEPENDENCIES AND FONTS */
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/vazirmatn-font-face.css');
 @import "ag-grid-community/styles/ag-grid.css";
 @import "ag-grid-community/styles/ag-theme-alpine.css";
 
-/* 4. DESIGN TOKENS SYSTEM */
 @theme {
   --color-border: rgba(226, 232, 240, 0.8);
   --color-background: #fafafa;
