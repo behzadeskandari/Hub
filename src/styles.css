@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Point it cleanly to your source directory */
 @source "./src/app/**/*.html";
 @source "./src/app/**/*.ts";
 
