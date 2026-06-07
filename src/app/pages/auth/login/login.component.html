@@ -1,16 +1,18 @@
-<div class="min-h-screen flex items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+<div dir="rtl" class="min-h-screen flex items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8 bg-card p-8 rounded-xl border border-border shadow-sm">
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight text-foreground">ورود به حساب کاربری</h2>
       <p class="mt-2 text-sm text-muted-foreground">
         یا
-        <a routerLink="/register" class="font-medium text-foreground underline underline-offset-4 hover:text-primary-hover">
+        <a routerLink="/register"
+          class="font-medium text-foreground underline underline-offset-4 hover:text-primary-hover">
           یک حساب کاربری جدید بسازید
         </a>
       </p>
     </div>
 
-    <div *ngIf="errorMessage" class="bg-destructive/10 text-destructive text-sm p-3 rounded-lg border border-destructive/20 text-center">
+    <div *ngIf="errorMessage"
+      class="bg-destructive/10 text-destructive text-sm p-3 rounded-lg border border-destructive/20 text-center">
       {{ errorMessage }}
     </div>
 
@@ -18,43 +20,60 @@
       <div class="space-y-4 rounded-md">
         <div>
           <label for="userName" class="block text-sm font-medium text-foreground mb-1">نام کاربری</label>
-          <input
-            id="userName"
-            type="text"
-            formControlName="userName"
+          <input id="userName" type="text" formControlName="userName"
             class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
             [ngClass]="{'border-destructive focus:ring-destructive focus:border-destructive': loginForm.get('userName')?.touched && loginForm.get('userName')?.invalid}"
             placeholder="نام کاربری خود را وارد کنید">
-          <div *ngIf="loginForm.get('userName')?.touched && loginForm.get('userName')?.invalid" class="text-destructive text-xs mt-1">
+          <div *ngIf="loginForm.get('userName')?.touched && loginForm.get('userName')?.invalid"
+            class="text-destructive text-xs mt-1">
             وارد کردن نام کاربری الزامی است
           </div>
         </div>
 
         <div>
           <label for="password" class="block text-sm font-medium text-foreground mb-1">رمز عبور</label>
-          <input
-            id="password"
-            type="password"
-            formControlName="password"
+          <input id="password" type="password" formControlName="password"
             class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
             [ngClass]="{'border-destructive focus:ring-destructive focus:border-destructive': loginForm.get('password')?.touched && loginForm.get('password')?.invalid}"
             placeholder="••••••••">
-          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-destructive text-xs mt-1">
+          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+            class="text-destructive text-xs mt-1">
             وارد کردن رمز عبور الزامی است
           </div>
+        </div>
+        <div>
+          <!-- CAPTCHA IMAGE -->
+         <div style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+">
+
+    <img [src]="captchaImage" alt="captcha" style="height:60px;width:90%;margin-bottom:10px; margin-left: 8px" />
+            <button type="button" (click)="refreshCaptcha()">↻</button>
+          <!-- CAPTCHA INPUT -->
+
+           <input style="margin-bottom:10px;" class="block w-full h-10 px-3 py-2 bg-transparent border border-border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary disabled:cursor-not-allowed disabled:opacity-50" formControlName="captcha" placeholder="کد کپچا را وارد کنید" />
+            <div class="capchaClass" *ngIf="loginForm.get('captcha')?.touched && loginForm.get('captcha')?.invalid" class="text-destructive text-xs mt-1">
+              وارد کردن کد کپچا الزامی است
+            </div>
+
+
+
+         </div>
         </div>
       </div>
 
       <div>
-        <button
-          type="submit"
-          [disabled]="isLoading"
+        <button type="submit" [disabled]="isLoading"
           class="relative flex w-full h-10 justify-center items-center rounded-md bg-primary text-sm font-medium text-primary-foreground shadow hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
           <span *ngIf="!isLoading">ورود</span>
           <span *ngIf="isLoading" class="flex items-center gap-2">
             <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+              </path>
             </svg>
             در حال پردازش...
           </span>

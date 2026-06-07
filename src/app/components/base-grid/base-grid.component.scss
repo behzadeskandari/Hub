@@ -1,0 +1,8 @@
+:host { display: block; }
+    .loading, .error-message {
+      padding: 20px;
+      text-align: center;
+      color: #666;
+    }
+    .error-message { color: red; }
+

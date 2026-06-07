@@ -42,7 +42,7 @@ export class RegisterComponent {
     this.errorMessage = '';
     this.successMessage = '';
 
-    this.http.post('https://localhost:5001/api/v1/Account/register', this.registerForm.value)
+    this.http.post('/api/v1/Account/register', this.registerForm.value)
       .subscribe({
         next: (response: any) => {
           this.isLoading = false;

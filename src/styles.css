@@ -3,10 +3,10 @@
 @source "./src/app/**/*.html";
 @source "./src/app/**/*.ts";
 
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/vazirmatn-font-face.css');
-@import "ag-grid-community/styles/ag-grid.css";
-@import "ag-grid-community/styles/ag-theme-alpine.css";
-
+/* @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/vazirmatn-font-face.css'); */
+/* @import "ag-grid-community/styles/ag-grid.css"; */
+/* @import "ag-grid-community/styles/ag-theme-alpine.css"; */
+@import "ag-grid-community/styles/ag-theme-quartz.css";
 @theme {
   --color-border: rgba(226, 232, 240, 0.8);
   --color-background: #fafafa;
@@ -29,4 +29,205 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), sans-serif;
+}
+
+.ag-theme-quartz {
+  height: 70vh;
+}
+.ag-theme-alpine {
+  --ag-font-family: 'Inter', 'Segoe UI', Arial;
+  --ag-font-size: 13px;
+
+  --ag-header-height: 44px;
+  --ag-row-height: 42px;
+
+  --ag-border-color: #e5e7eb;
+  --ag-header-background-color: #f8fafc;
+  --ag-odd-row-background-color: #fafafa;
+  --ag-row-hover-color: #eef6ff;
+}
+.grid-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid #eef0f3;
+}
+.ag-header {
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+}
+
+.ag-header-cell-label {
+  color: #374151;
+  font-size: 13px;
+}
+.ag-row {
+  transition: background 0.2s ease;
+}
+
+.ag-row:hover {
+  background-color: #eef6ff !important;
+}
+
+.ag-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-pending {
+  background: #fef9c3;
+  color: #854d0e;
+}
+.ag-header-cell-filter input {
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
+.ag-header-cell-filter input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+.ag-paging-panel {
+  border-top: 1px solid #e5e7eb;
+  padding: 10px;
+  background: #f9fafb;
+  font-size: 13px;
+}
+
+.ag-paging-button {
+  border-radius: 6px;
+}
+.ag-cell {
+  padding: 6px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12.5px;
+}
+
+
+.ag-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #f8f8f8;
+  border-top: 1px solid #d0d0d0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  justify-content: end;
+}
+
+.ag-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+
+  border: 1px solid #d1d5db;
+  background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+  border: 2px solid #3b82f6;
+  color: #1f2937;
+  font-weight: 500;
+font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.ag-btn:hover:not(:disabled) {
+  border-color: #60a5fa;
+  background: linear-gradient(to bottom, #eff6ff, #dbeafe);
+  color: #1d4ed8;
+  transform: translateY(-1px);
+
+}
+
+.ag-btn:active:not(:disabled) {
+  transform: translateY(0px);
+  background: #dbeafe;
+}
+
+.ag-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f3f4f6;
+}
+
+.ag-btn:hover:not(:disabled) {
+  border-color: #999;
+  background: linear-gradient(#fdfdfd, #dcdcdc);
+  font-size: 19px;
+}
+
+.ag-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ag-page-info {
+  padding: 0 6px;
+  color: #333;
+}
+.ag-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+.ag-select {
+  /* margin-left: auto; */
+  padding: 3px 6px;
+  border: 2px solid #3b82f6;
+  border-radius: 2px;
+
+  font-size: 13px;
+    background: #eef2ff;
+  color: #3730a3;
+}
+
+.ag-page-info {
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  background: #eef2ff;
+  color: #3730a3;
+
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.ag-error {
+  padding: 8px;
+  margin-top: 5px;
+  color: #a94442;
+  background: #f2dede;
+  border: 1px solid #ebccd1;
+  font-size: 12px;
+}
+.ag-pagination {
+  user-select: none;
+}
+
+.ag-btn:active {
+  background: #dcdcdc;
 }

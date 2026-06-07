@@ -1,0 +1,30 @@
+<form class="search-bar" [formGroup]="searchForm">
+
+  <input
+    placeholder="Tracking Number"
+    formControlName="trackingNumber"
+    (keyup.enter)="search()"
+  />
+
+  <input
+    placeholder="RRN"
+    type="number"
+    formControlName="rrn"
+    (keyup.enter)="search()"
+  />
+
+  <select formControlName="status" (change)="search()">
+    <option [value]="null">همه</option>
+    <option [value]="1">موفق</option>
+    <option [value]="2">ناموفق</option>
+  </select>
+
+  <button type="button" class="ag-btn" (click)="search()">جستجو</button>
+  <button type="button" class="ag-btn" (click)="resetFilters()">حذف فیلترها</button>
+</form>
+<app-base-grid
+               [useSearch]="false"
+               [searchModel]="searchModel"
+               [apiUrl]="apiUrl"
+               [columnDefsOverride]="customColumns">
+</app-base-grid>
