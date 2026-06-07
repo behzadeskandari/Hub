@@ -149,7 +149,8 @@ export class ReportComponent implements AfterViewInit {
 
   customColumns: ColDef[] = [
     {
-      field: 'source', headerName: 'Source',
+      //Source
+      field: 'source', headerName: 'مبدا',
       filter: 'agTextColumnFilter',
       cellRenderer: (params: any) => {
         const statusMap: any = {
@@ -166,16 +167,16 @@ export class ReportComponent implements AfterViewInit {
                `;
       },
     },
-    { field: 'trackingNumber', headerName: 'Tracking Number', minWidth: 200 },
+    { field: 'trackingNumber', headerName: 'شمالی پیگیری', minWidth: 200 },
     { field: 'rrn', headerName: 'RRN' },
     {
       field: 'amount',
-      headerName: 'Amount',
+      headerName: 'مبلغ (ریال)',
       valueFormatter: params => params.value?.toLocaleString('fa-IR') + ' ریال  '     // or whatever currency
     },
     {
       field: 'status',
-      headerName: 'Status',
+      headerName: 'وضعیت',
       cellRenderer: (params: any) => {
         const statusMap: any = {
           0: { text: 'در انتظار', class: 'badge-pending' },
@@ -204,12 +205,12 @@ export class ReportComponent implements AfterViewInit {
     },
     {
       field: 'transactionDate',
-      headerName: 'Transaction Date',
+      headerName: 'تاریخ تراکنش',
       valueFormatter: params =>
         params.value
           ? new Date(params.value).toLocaleString('fa-IR')
           : ''
     },
-    { field: 'approvalCode', headerName: 'Approval Code', minWidth: 180 }
+    { field: 'approvalCode', headerName: 'کد تأیید', minWidth: 180 }
   ];
 }
