@@ -7,6 +7,7 @@
 /* @import "ag-grid-community/styles/ag-grid.css"; */
 /* @import "ag-grid-community/styles/ag-theme-alpine.css"; */
 @import "ag-grid-community/styles/ag-theme-quartz.css";
+
 @theme {
   --color-border: rgba(226, 232, 240, 0.8);
   --color-background: #fafafa;
@@ -34,6 +35,7 @@ body {
 .ag-theme-quartz {
   height: 70vh;
 }
+
 .ag-theme-alpine {
   --ag-font-family: 'Inter', 'Segoe UI', Arial;
   --ag-font-size: 13px;
@@ -46,13 +48,15 @@ body {
   --ag-odd-row-background-color: #fafafa;
   --ag-row-hover-color: #eef6ff;
 }
+
 .grid-card {
   background: #ffffff;
   border-radius: 14px;
   padding: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   border: 1px solid #eef0f3;
 }
+
 .ag-header {
   border-bottom: 1px solid #e5e7eb;
   font-weight: 600;
@@ -62,6 +66,7 @@ body {
   color: #374151;
   font-size: 13px;
 }
+
 .ag-row {
   transition: background 0.2s ease;
 }
@@ -96,6 +101,7 @@ body {
   background: #fef9c3;
   color: #854d0e;
 }
+
 .ag-header-cell-filter input {
   border-radius: 6px;
   border: 1px solid #d1d5db;
@@ -106,8 +112,9 @@ body {
 .ag-header-cell-filter input:focus {
   outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
+
 .ag-paging-panel {
   border-top: 1px solid #e5e7eb;
   padding: 10px;
@@ -118,6 +125,7 @@ body {
 .ag-paging-button {
   border-radius: 6px;
 }
+
 .ag-cell {
   padding: 6px 10px;
   white-space: nowrap;
@@ -142,24 +150,40 @@ body {
 .ag-btn {
   padding: 5px 12px;
   border-radius: 6px;
-
   border: 1px solid #d1d5db;
-  background: linear-gradient(to bottom, #ffffff, #f1f5f9);
-  border: 2px solid #3b82f6;
   color: #1f2937;
   font-weight: 500;
-font-size: 14px;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ag-btn-primary {
+  margin: 5px 12px;
+  background: linear-gradient(to bottom, #2bdd07, #036e1a);
+  border: 2px solid #3bf644;
+  color: #f8fafc;
+}
+.ag-btn-warning {
+  margin: 5px 12px;
+  background: linear-gradient(to bottom, #dd0735, #ec0436);
+  border: 2px solid #f81848;
+  color: #f8fafc;
+}
+
+.ag-btn-gery {
+  margin: 5px 12px;
+  background: linear-gradient(to bottom, #6d6d6d, #6d6d6d);
+  border: 2px solid #5a5959;
+  color: #fff;
 }
 
 .ag-btn:hover:not(:disabled) {
   border-color: #60a5fa;
-  background: linear-gradient(to bottom, #eff6ff, #dbeafe);
+  background: linear-gradient(to bottom, #4e4e4e, #3d3d3d);
   color: #1d4ed8;
   transform: translateY(-1px);
-
 }
 
 .ag-btn:active:not(:disabled) {
@@ -171,6 +195,7 @@ font-size: 14px;
   opacity: 0.4;
   cursor: not-allowed;
   background: #f3f4f6;
+  color:#000;
 }
 
 .ag-btn:hover:not(:disabled) {
@@ -188,10 +213,11 @@ font-size: 14px;
   padding: 0 6px;
   color: #333;
 }
+
 .ag-select:focus {
   outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .ag-select {
@@ -201,7 +227,7 @@ font-size: 14px;
   border-radius: 2px;
 
   font-size: 13px;
-    background: #eef2ff;
+  background: #eef2ff;
   color: #3730a3;
 }
 
@@ -224,10 +250,112 @@ font-size: 14px;
   border: 1px solid #ebccd1;
   font-size: 12px;
 }
+
 .ag-pagination {
   user-select: none;
 }
 
 .ag-btn:active {
   background: #dcdcdc;
+}
+
+.search-input {
+  width: 220px;
+  height: 42px;
+  padding: 0 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  background: #fff;
+  color: #1f2937;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  outline: none;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  &::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+  }
+
+  &:hover {
+    border-color: #94a3b8;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  }
+
+  &:disabled {
+    background: #f8fafc;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+}
+
+.status-badge {
+  padding: 4px 5px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* success */
+.badge-success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+/* failed */
+.badge-failed {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* pending */
+.badge-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+::ng-deep ng-persian-datepicker {
+  .datepicker-outer-container {
+    width: 320px !important;     /* یا هر عرضی که می‌خواهید (معمولاً 300-340px) */
+    max-width: 320px !important;
+  }
+}
+::ng-deep .from-date-picker .datepicker-outer-container,
+::ng-deep .to-date-picker .datepicker-outer-container {
+  width: 320px !important;
+}
+.date-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 200px; /* same as your inputs */
+}
+
+.date-wrapper ng-persian-datepicker {
+  display: inline-block;
+  width: 100%;
+}
+
+.date-wrapper input {
+  width: 100%;
+  cursor: pointer;
+}
+
+
+.ag-btn-export {
+  background-color: #28a745;
+  color: white;
+  margin-left: 8px;
 }

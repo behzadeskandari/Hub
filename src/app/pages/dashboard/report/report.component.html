@@ -1,30 +1,42 @@
-<form class="search-bar" [formGroup]="searchForm">
+<div class="text-center d-flex flex-column align-items-center gap-3 mb-4 mt-4">
+  <img src="../../../../assets/images/omidLogo.png" alt="Report Icon" style="width: 150px;">
+</div>
 
-  <input
-    placeholder="Tracking Number"
-    formControlName="trackingNumber"
-    (keyup.enter)="search()"
-  />
+<form class="search-bar" class="col-12" [formGroup]="searchForm" style="border:1px solid rgb(244,233,222,0.8);box-shadow:hsl(from 244 233 222 / 80%); border-radius: 8px; padding: 20px; margin-bottom: 20px;">
 
-  <input
-    placeholder="RRN"
-    type="number"
-    formControlName="rrn"
-    (keyup.enter)="search()"
-  />
+  <div class="col-12 text-center " dir="rtl" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding-top:20px;margin-top:20px; border-radius: 8px; margin-bottom: 20px;">
 
-  <select formControlName="status" (change)="search()">
-    <option [value]="null">همه</option>
-    <option [value]="1">موفق</option>
-    <option [value]="2">ناموفق</option>
-  </select>
+    <input class="search-input" type="text" placeholder="Tracking Number" formControlName="trackingNumber">
+    <input class="search-input" type="text" placeholder="RRN" formControlName="rrn">
 
-  <button type="button" class="ag-btn" (click)="search()">جستجو</button>
-  <button type="button" class="ag-btn" (click)="resetFilters()">حذف فیلترها</button>
+    <select class="search-input" formControlName="status">
+      <option [ngValue]="null">همه</option>
+      <option [ngValue]="1">موفق</option>
+      <option [ngValue]="2">ناموفق</option>
+    </select>
+    <input class="search-input" type="number" placeholder="حداقل مبلغ" formControlName="amountFrom">
+
+    <input class="search-input" type="number" placeholder="حداکثر مبلغ" formControlName="amountTo">
+    <div class="date-wrapper">
+
+      <ng-persian-datepicker>
+        <input [value]="fromDatePersian" (click)="openPicker('from')" class="search-input from-date-picker"
+          formControlName="fromDate" placeholder="از تاریخ">
+      </ng-persian-datepicker>
+    </div>
+    <div class=" date-wrapper">
+
+      <ng-persian-datepicker>
+        <input [value]="toDatePersian" (click)="openPicker('to')" class="search-input" formControlName="toDate"
+          placeholder="تا تاریخ">
+      </ng-persian-datepicker>
+    </div>
+  </div>
+<button class="ag-btn ag-btn-export" (click)="exportToExcel()">خروجی اکسل</button>
+<button class="ag-btn ag-btn-export  ag-btn-warning" (click)="exportToPdf()">خروجی PDF</button>
+  <button type="button" class="ag-btn  ag-btn-primary" (click)="search()">جستجو</button>
+  <button type="button" class="ag-btn  ag-btn-warning" (click)="resetFilters()">حذف فیلترها</button>
+
 </form>
-<app-base-grid
-               [useSearch]="false"
-               [searchModel]="searchModel"
-               [apiUrl]="apiUrl"
-               [columnDefsOverride]="customColumns">
+<app-base-grid [useSearch]="true" [searchModel]="searchModel" [apiUrl]="apiUrl" [columnDefsOverride]="customColumns">
 </app-base-grid>

@@ -2,12 +2,12 @@ export interface TransactionSearchRequest {
   trackingNumber?: string;
   rrn?: number;
   status?: number;
-  amountFrom?: number;
-  amountTo?: number;
-  fromDate?: string;
-  toDate?: string;
-  transactionType?: string;
-  merchantId?: string;
+  amountFrom?: number | null;
+  amountTo?: number | null;
+  fromDate?: string | null;
+  toDate?: string | null;
+  transactionType?: string | null;
+  merchantId?: string | null;
 
   pageNumber: number;
   pageSize: number;

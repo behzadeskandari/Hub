@@ -28,6 +28,7 @@ export class BaseGridComponent implements OnInit, AfterViewInit {
   @ViewChild('agGrid') agGrid!: AgGridAngular;
 
   @Input() apiUrl: string = '/api/Report/GetAll';
+  @Input() apiUrlSearch: string = '/api/Report/Search';
   @Input() columnDefsOverride?: ColDef[];
   @Input() useSearch = true;
   @Input() searchModel: any;
@@ -57,6 +58,7 @@ export class BaseGridComponent implements OnInit, AfterViewInit {
     // paginationPageSizeSelector: [10, 20, 50, 100],
     rowSelection: { mode: 'multiRow' },     // Community compatible
     suppressRowClickSelection: false,
+     rowHeight: 60
   };
 
 
@@ -109,7 +111,7 @@ export class BaseGridComponent implements OnInit, AfterViewInit {
 
   }
 
-  loadSearch(page = 1, pageSize = this.pageSize){
+  public loadSearch(page = 1, pageSize = this.pageSize){
     this.searchData(page, pageSize);
   }
   private getAllData(page: number, pageSize: number): void {
@@ -118,6 +120,8 @@ export class BaseGridComponent implements OnInit, AfterViewInit {
     this.http.get<any>(url).subscribe({
       next: (res) => {
         this.rowData = res.items || [];
+        console.log('GRID RESPONSE:', res);
+        console.log('ROW DATA:', this.rowData);
         this.totalCount = res.totalCount;
         this.currentPage = page;
         this.loading = false;
@@ -137,7 +141,7 @@ export class BaseGridComponent implements OnInit, AfterViewInit {
       pageSize: pageSize
     };
 
-    this.http.post<any>(`${this.apiUrl}/search`, payload)
+    this.http.post<any>(`${this.apiUrlSearch}`, payload)
       .subscribe({
         next: (res) => {
           this.rowData = res.items || [];

@@ -19,6 +19,13 @@
     "@angular/router": "^19.2.0",
     "ag-grid-angular": "^35.3.0",
     "ag-grid-community": "^35.3.0",
+    "bootstrap": "^5.3.8",
+    "jalali-moment": "^3.3.11",
+    "jalali-ts": "^8.0.0",
+    "moment": "^2.30.1",
+    "moment-jalaali": "^0.10.4",
+    "ng-persian-datepicker": "^10.0.0",
+    "ngx-bootstrap": "^21.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

@@ -8,7 +8,7 @@
        [style.height.px]="gridHeight"
       class="ag-theme-quartz"
       [rowData]="rowData"
-      [columnDefs]="columnDefs"
+      [columnDefs]="columnDefsOverride?.length ? columnDefsOverride : columnDefs"
       [defaultColDef]="defaultColDef"
       [gridOptions]="gridOptions"
       (gridReady)="onGridReady($event)">
@@ -17,7 +17,7 @@
 </div>
 <div class="ag-pagination">
 
-  <button class="ag-btn" (click)="prevPage()" [disabled]="currentPage === 1">
+  <button class="ag-btn ag-btn-gery" (click)="prevPage()" [disabled]="currentPage === 1">
       قبلی
     </button>
 
@@ -25,7 +25,7 @@
  صفحه {{ currentPage }} از {{ totalPages }}
   </span>
 
-  <button class="ag-btn" (click)="nextPage()">
+  <button class="ag-btn ag-btn-gery" (click)="nextPage()">
     بعدی
   </button>
 
