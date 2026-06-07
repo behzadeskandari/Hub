@@ -1,0 +1,71 @@
+/* Fonts loaded from local assets for Persian and UI text */
+@font-face {
+	font-family: 'Vazir';
+	src: url('./assets/fonts/vazir-font/Vazir.woff2') format('woff2'),
+			 url('./assets/fonts/vazir-font/Vazir.woff') format('woff'),
+			 url('./assets/fonts/vazir-font/Vazir.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Vazir';
+	src: url('./assets/fonts/vazir-font/Vazir-Medium.woff2') format('woff2'),
+			 url('./assets/fonts/vazir-font/Vazir-Medium.woff') format('woff'),
+			 url('./assets/fonts/vazir-font/Vazir-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Vazir';
+	src: url('./assets/fonts/vazir-font/Vazir-Bold.woff2') format('woff2'),
+			 url('./assets/fonts/vazir-font/Vazir-Bold.woff') format('woff'),
+			 url('./assets/fonts/vazir-font/Vazir-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Vazir';
+	src: url('./assets/fonts/vazir-font/Vazir-Light.woff2') format('woff2'),
+			 url('./assets/fonts/vazir-font/Vazir-Light.woff') format('woff'),
+			 url('./assets/fonts/vazir-font/Vazir-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Vazir';
+	src: url('./assets/fonts/vazir-font/Vazir-Thin.woff2') format('woff2'),
+			 url('./assets/fonts/vazir-font/Vazir-Thin.woff') format('woff'),
+			 url('./assets/fonts/vazir-font/Vazir-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Yekan as a secondary Persian/UI font */
+@font-face {
+	font-family: 'Yekan';
+	src: url('./assets/fonts/yekan-font/Yekan.woff') format('woff'),
+			 url('./assets/fonts/yekan-font/Yekan.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Apply the fonts globally as defaults (Vazir preferred, Yekan fallback) */
+html, body {
+	font-family: 'Vazir', 'Yekan', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+/* Small helper for headings if you want to force bold weight */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Vazir', 'Yekan', sans-serif;
+}
+
