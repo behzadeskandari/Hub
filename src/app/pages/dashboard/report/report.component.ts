@@ -192,15 +192,7 @@ export class ReportComponent implements AfterViewInit {
                 </span>
                `;
       }
-      // field: 'status', headerName: 'Status',
-      // valueFormatter: params => {
-      //   const statusMap: { [key: number]: string } = {
-      //     0: 'در انتظار',
-      //     1: 'موفق',
-      //     2: 'ناموفق',
-      //   };
-      //   return statusMap[params.value] || params.value;
-      // }
+
 
     },
     {
